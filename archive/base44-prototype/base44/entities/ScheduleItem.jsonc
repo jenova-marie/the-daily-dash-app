@@ -1,0 +1,88 @@
+{
+  "name": "ScheduleItem",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "start_time": {
+      "type": "string"
+    },
+    "end_time": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "calendar",
+        "task",
+        "education",
+        "chore",
+        "custom"
+      ]
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ]
+    },
+    "deleted_from_app": {
+      "type": "boolean",
+      "default": false
+    },
+    "hidden_from_grid": {
+      "type": "boolean",
+      "default": false
+    },
+    "hidden_from_todo": {
+      "type": "boolean",
+      "default": false
+    },
+    "google_event_id": {
+      "type": "string"
+    },
+    "google_calendar_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "date",
+    "start_time"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

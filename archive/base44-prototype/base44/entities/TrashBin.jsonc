@@ -1,0 +1,45 @@
+{
+  "name": "TrashBin",
+  "type": "object",
+  "properties": {
+    "item_type": {
+      "type": "string",
+      "enum": [
+        "task"
+      ],
+      "description": "Type of item in trash"
+    },
+    "item_id": {
+      "type": "string",
+      "description": "Original ID of the deleted item"
+    },
+    "item_data": {
+      "type": "string",
+      "description": "JSON serialized data of the deleted item for restoration"
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the item was deleted"
+    }
+  },
+  "required": [
+    "item_type",
+    "item_id",
+    "item_data"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

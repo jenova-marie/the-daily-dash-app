@@ -1,0 +1,55 @@
+{
+  "name": "GoalTask",
+  "type": "object",
+  "properties": {
+    "goal_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "once",
+        "daily",
+        "weekly",
+        "biweekly",
+        "monthly"
+      ]
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "occurrences": {
+      "type": "number",
+      "default": 1,
+      "description": "Number of times this task needs to be completed"
+    },
+    "completed_count": {
+      "type": "number",
+      "default": 0,
+      "description": "How many times this task has been completed so far"
+    }
+  },
+  "required": [
+    "goal_id",
+    "title",
+    "frequency"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

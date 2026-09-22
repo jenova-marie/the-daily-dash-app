@@ -1,0 +1,66 @@
+{
+  "name": "EducationPlan",
+  "type": "object",
+  "properties": {
+    "learner_id": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "in_progress",
+        "completed"
+      ],
+      "default": "not_started"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "due_time": {
+      "type": "string"
+    },
+    "materials": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "synced_to_schedule": {
+      "type": "boolean",
+      "default": false
+    },
+    "schedule_time": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "learner_id",
+    "subject",
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

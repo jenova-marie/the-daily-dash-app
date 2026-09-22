@@ -1,0 +1,91 @@
+{
+  "name": "EducationActivity",
+  "type": "object",
+  "properties": {
+    "plan_id": {
+      "type": "string"
+    },
+    "learner_id": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "assignment",
+        "activity"
+      ],
+      "default": "assignment"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "once",
+        "daily",
+        "weekly",
+        "biweekly",
+        "monthly"
+      ],
+      "default": "once"
+    },
+    "days_of_week": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ]
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "resource_links": {
+      "type": "string",
+      "description": "JSON array of resource URLs"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "last_completed_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "plan_id",
+    "learner_id",
+    "subject",
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Goal",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "timeframe": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "monthly",
+        "annual",
+        "3_year",
+        "5_year"
+      ]
+    },
+    "occurrences": {
+      "type": "number",
+      "default": 1,
+      "description": "Number of times the goal needs to be completed"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "in_progress",
+        "completed",
+        "on_hold"
+      ],
+      "default": "not_started"
+    },
+    "progress": {
+      "type": "number",
+      "default": 0
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "milestones": {
+      "type": "string"
+    },
+    "member_name": {
+      "type": "string"
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the goal was started (status changed to in_progress)"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the goal was completed"
+    },
+    "category": {
+      "type": "string",
+      "description": "Category label for the goal"
+    },
+    "category_color": {
+      "type": "string",
+      "description": "Color associated with the category"
+    }
+  },
+  "required": [
+    "title",
+    "timeframe"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

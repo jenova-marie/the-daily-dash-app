@@ -1,0 +1,64 @@
+{
+  "name": "HealthPillar",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "enum": [
+        "Nutrition",
+        "Fitness",
+        "Mindset",
+        "Rest",
+        "Destress",
+        "Play",
+        "Education",
+        "Career",
+        "Home/Environment",
+        "Relationships",
+        "Self-esteem",
+        "Financial",
+        "Spirituality"
+      ],
+      "description": "The health pillar type"
+    },
+    "description": {
+      "type": "string",
+      "description": "User's personal description or goal for this pillar"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Lucide icon name for visual representation"
+    },
+    "color": {
+      "type": "string",
+      "description": "Hex color code for the pillar"
+    },
+    "order": {
+      "type": "number",
+      "default": 0,
+      "description": "Display order for pillars"
+    },
+    "is_hidden": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, this pillar is excluded from daily assessments"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

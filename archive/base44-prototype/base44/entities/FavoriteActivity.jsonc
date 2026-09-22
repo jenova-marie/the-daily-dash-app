@@ -1,0 +1,46 @@
+{
+  "name": "FavoriteActivity",
+  "type": "object",
+  "properties": {
+    "learner_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "assignment",
+        "activity"
+      ]
+    },
+    "duration": {
+      "type": "string"
+    },
+    "materials": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "learner_id",
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

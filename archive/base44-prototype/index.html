@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Base44 APP</title>
+  </head>
+  <body>
+    <script>
+      try {
+        document.documentElement.classList.add('dark');
+        var defaultBg = 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920';
+        var bg = null;
+        var lib = JSON.parse(localStorage.getItem('theme_bg_library') || '[]');
+        if (!lib.length) lib = [defaultBg];
+        if (localStorage.getItem('theme_randomize') !== '0') {
+          bg = lib[Math.floor(Math.random() * lib.length)];
+        }
+        if (!bg) bg = localStorage.getItem('theme_last_bg') || defaultBg;
+        document.body.style.backgroundImage = 'url(' + bg + ')';
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundAttachment = 'fixed';
+        document.body.style.backgroundRepeat = 'no-repeat';
+      } catch(e) {}
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

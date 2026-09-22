@@ -1,0 +1,36 @@
+{
+  "name": "Affirmation",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "The affirmation text"
+    },
+    "pillar_name": {
+      "type": "string",
+      "description": "Associated health pillar"
+    },
+    "is_favorite": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this affirmation is marked as a favorite"
+    }
+  },
+  "required": [
+    "text"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

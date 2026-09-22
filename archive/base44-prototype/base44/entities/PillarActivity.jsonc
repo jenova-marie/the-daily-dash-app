@@ -1,0 +1,78 @@
+{
+  "name": "PillarActivity",
+  "type": "object",
+  "properties": {
+    "pillar_id": {
+      "type": "string",
+      "description": "ID of the associated health pillar"
+    },
+    "pillar_name": {
+      "type": "string",
+      "description": "Name of the associated health pillar"
+    },
+    "activity": {
+      "type": "string",
+      "description": "The activity or task description"
+    },
+    "order": {
+      "type": "number",
+      "default": 0,
+      "description": "Display order for activities"
+    }
+  },
+  "required": [
+    "pillar_id",
+    "pillar_name",
+    "activity"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

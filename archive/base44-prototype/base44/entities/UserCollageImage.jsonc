@@ -1,0 +1,48 @@
+{
+  "name": "UserCollageImage",
+  "type": "object",
+  "properties": {
+    "file_uri": {
+      "type": "string",
+      "description": "Private file URI from UploadPrivateFile"
+    },
+    "signed_url": {
+      "type": "string",
+      "description": "Cached signed URL for display"
+    },
+    "signed_url_expires": {
+      "type": "number",
+      "description": "Timestamp when signed URL expires"
+    },
+    "title": {
+      "type": "string",
+      "description": "Optional title"
+    },
+    "include_in_slideshow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to include in slideshow"
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "file_uri"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

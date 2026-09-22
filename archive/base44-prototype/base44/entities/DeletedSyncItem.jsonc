@@ -1,0 +1,61 @@
+{
+  "name": "DeletedSyncItem",
+  "type": "object",
+  "properties": {
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "calendar",
+        "task"
+      ],
+      "description": "Type of item that was deleted"
+    },
+    "google_id": {
+      "type": "string",
+      "description": "Google ID of the deleted item"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the deleted item"
+    },
+    "sync_source": {
+      "type": "string",
+      "description": "Which sync (calendar or task) detected this deletion"
+    },
+    "last_detected": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last time this deleted item was detected during sync"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending_review",
+        "denied",
+        "allowed"
+      ],
+      "default": "pending_review",
+      "description": "User's decision on whether to allow re-sync"
+    }
+  },
+  "required": [
+    "source_type",
+    "google_id",
+    "title",
+    "sync_source"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

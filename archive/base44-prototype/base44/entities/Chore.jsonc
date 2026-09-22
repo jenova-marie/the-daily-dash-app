@@ -1,0 +1,90 @@
+{
+  "name": "Chore",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "assigned_to": {
+      "type": "string"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "once",
+        "daily",
+        "weekly",
+        "biweekly",
+        "monthly",
+        "quarterly",
+        "yearly",
+        "as_needed"
+      ]
+    },
+    "day_of_week": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "room": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "completed",
+        "skipped"
+      ],
+      "default": "pending"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_completed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "time_estimate": {
+      "type": "number"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "chore_type": {
+      "type": "string",
+      "description": "Type of chore, e.g. Cleaning, Meal, Organizing, etc."
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

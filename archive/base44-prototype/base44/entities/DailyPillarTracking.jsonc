@@ -1,0 +1,57 @@
+{
+  "name": "DailyPillarTracking",
+  "type": "object",
+  "properties": {
+    "pillar_id": {
+      "type": "string",
+      "description": "Reference to the HealthPillar"
+    },
+    "pillar_name": {
+      "type": "string",
+      "description": "Cached pillar name for quick access"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "The evaluation date"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Daily rating for this pillar (1-5)"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional reflection or notes"
+    },
+    "selected_activities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "IDs of activities that were used/completed"
+    }
+  },
+  "required": [
+    "pillar_id",
+    "pillar_name",
+    "date",
+    "rating"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

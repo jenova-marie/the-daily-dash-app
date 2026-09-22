@@ -1,0 +1,111 @@
+{
+  "name": "ThemeSettings",
+  "type": "object",
+  "properties": {
+    "primary_color": {
+      "type": "string"
+    },
+    "accent_color": {
+      "type": "string"
+    },
+    "background_image": {
+      "type": "string"
+    },
+    "background_library": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "widget_bg_opacity": {
+      "type": "number",
+      "default": 70
+    },
+    "font_size": {
+      "type": "string",
+      "enum": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "default": "medium"
+    },
+    "heading_font": {
+      "type": "string"
+    },
+    "body_font": {
+      "type": "string"
+    },
+    "dark_mode": {
+      "type": "boolean",
+      "default": true
+    },
+    "widget_border_radius": {
+      "type": "number",
+      "default": 12
+    },
+    "randomize_background": {
+      "type": "boolean",
+      "default": true
+    },
+    "dashboard_header": {
+      "type": "string"
+    },
+    "enable_vision_board": {
+      "type": "boolean",
+      "default": true
+    },
+    "enable_education": {
+      "type": "boolean",
+      "default": true
+    },
+    "enable_chores": {
+      "type": "boolean",
+      "default": true
+    },
+    "sync_times": {
+      "type": "string",
+      "description": "JSON array of times in HH:MM format for auto-sync scheduling"
+    },
+    "sync_sources": {
+      "type": "string",
+      "description": "JSON array of sync sources for auto-sync, e.g. [\"calendar\", \"tasks\"]"
+    },
+    "auto_sync_calendar_ids": {
+      "type": "string",
+      "description": "JSON array of SelectedCalendars IDs to include in auto-sync"
+    },
+    "task_sync_category": {
+      "type": "string",
+      "description": "Default category label assigned to tasks synced from Google Tasks"
+    },
+    "task_sync_color": {
+      "type": "string",
+      "description": "Default category color assigned to tasks synced from Google Tasks"
+    },
+    "widget_order": {
+      "type": "string",
+      "description": "JSON array of widget IDs representing the user's preferred dashboard widget order"
+    },
+    "onboarding_status": {
+      "type": "string",
+      "description": "JSON object tracking which onboarding dialogs have been dismissed by key"
+    }
+  },
+  "required": [],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

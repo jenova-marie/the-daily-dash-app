@@ -1,0 +1,46 @@
+{
+  "name": "CollageImage",
+  "type": "object",
+  "properties": {
+    "image_url": {
+      "type": "string",
+      "description": "URL of the uploaded image"
+    },
+    "title": {
+      "type": "string",
+      "description": "Optional title or name for the image"
+    },
+    "order": {
+      "type": "number",
+      "default": 0,
+      "description": "Display order in slideshow"
+    },
+    "is_default": {
+      "type": "boolean",
+      "default": false,
+      "description": "Legacy field"
+    },
+    "hidden_from_slideshow": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this image is hidden from the slideshow"
+    }
+  },
+  "required": [
+    "image_url"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

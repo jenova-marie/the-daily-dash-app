@@ -1,0 +1,4 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+# archive/ is deliberately excluded: the Base44 prototype is reference material, not a workspace package.
